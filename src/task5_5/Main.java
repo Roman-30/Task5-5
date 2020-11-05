@@ -7,13 +7,21 @@ public class Main {
     public static void main(String[] args) {
         int height = readHeight();
 
-        getTriangle(height);
+        startProgram(height);
     }
 
     public static int readHeight() {
         Scanner scn = new Scanner(System.in);
         System.out.print("Enter the height of the triangle: ");
         return scn.nextInt();
+    }
+
+    public static void startProgram(int height) {
+        if (height > 3) {
+            getTriangle(height);
+        } else {
+            System.out.println("Error. Enter the height again, which will be more than three");
+        }
     }
 
     public static void getTriangle(int height) {
