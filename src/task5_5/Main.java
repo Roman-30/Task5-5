@@ -17,10 +17,10 @@ public class Main {
     }
 
     public static void startProgram(int height) {
-        if (height > 3) {
+        if (height >= 3) {
             getTriangle(height);
         } else {
-            System.out.println("Error. Enter the height again, which will be more than three");
+            System.out.println("Error. Enter the height again, which will be more or equal than three");
         }
     }
 
