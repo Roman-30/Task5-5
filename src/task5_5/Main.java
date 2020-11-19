@@ -5,55 +5,41 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int height = readHeight();
+        int height = readHeight("Enter the height which will be more two. Height = ");
 
-        startProgram(height);
+        if (height > 2) {
+            printTopTriangle();
+            printMiddleTriangle(height);
+            printBottomTriangle(height);
+        } else {
+            System.out.println("Error, height no more two ");
+        }
     }
 
-    public static int readHeight() {
+    public static int readHeight(String name) {
         Scanner scn = new Scanner(System.in);
-        System.out.print("Enter the height of the triangle: ");
+        System.out.print(name);
         return scn.nextInt();
     }
 
-    public static void startProgram(int height) {
-        if (height >= 3) {
-            getTriangle(height);
-        } else {
-            System.out.println("Error. Enter the height again, which will be more or equal than three");
-        }
+    public static void printTopTriangle() {
+        System.out.println("*");
     }
 
-    public static void getTriangle(int height) {
-        for (int i = 0; i < height; i++) {
-            printTopTriangle(i);
-            printBottomTriangle(i, height);
-            printMiddleTriangle(i, height);
-        }
-    }
-
-    public static void printTopTriangle(int i) {
-        if (i == 0) {
-            System.out.println("*");
-        }
-    }
-
-    public static void printMiddleTriangle(int i, int height) {
-        if (i > 0 && i < height - 1) {
+    public static void printMiddleTriangle(int height) {
+        for (int i = 1; i < height - 1; i++) {
             System.out.print("|");
-            for (int j = 1; j < i; i--) {
+            for (int j = 1; j < i; j++) {
                 System.out.print(" ");
             }
             System.out.println("\\");
         }
     }
 
-    public static void printBottomTriangle(int i, int height) {
-        if (i == height - 1) {
-            for (int c = 0; c < height; c++) {
-                System.out.print((c == 0 || c == height - 1) ? '*' : '-');
-            }
-            System.out.println();
+    public static void printBottomTriangle(int height) {
+        for (int c = 0; c < height; c++) {
+            System.out.print((c == 0 || c == height - 1) ? '*' : '-');
         }
+        System.out.println();
     }
 }
